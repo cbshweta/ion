@@ -2,9 +2,6 @@
 // SPDX-License-Identifier: LGPL-3.0+
 pragma solidity ^0.4.24;
 
-import "../libraries/ECVerify.sol";
-
-import "../libraries/PatriciaTrie.sol";
 import "../libraries/SolidityUtils.sol";
 import "./BlockStore.sol";
 

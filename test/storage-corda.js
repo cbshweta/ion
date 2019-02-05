@@ -40,36 +40,36 @@ contract.only('CordaStore.sol', (accounts) => {
 
     beforeEach('setup contract for each test', async function () {
         ion = await MockIon.new(DEPLOYEDCHAINID);
-        storage = await CordaStore.new(ion.address);
+//        storage = await CordaStore.new(ion.address);
     })
 
-    describe('Register Chain', () => {
-        it('Successful Register Chain', async () => {
-            // Successfully add id of another chain
-            await ion.addChain(storage.address, TESTCHAINID);
-
-            let chainRegistered = await storage.m_chains(TESTCHAINID);
-            assert(chainRegistered);
-
-            let chainId = await storage.m_networks.call(TESTCHAINID);
-            assert.equal(TESTCHAINID, chainId);
-        })
-
-        it('Fail Register Current Chain', async () => {
-            // Fail adding deployment chain id
-            await ion.addChain(storage.address, DEPLOYEDCHAINID).should.be.rejected;
-        })
-
-        it('Fail Register Chain Twice', async () => {
-            // Successfully add id of another chain
-            await ion.addChain(storage.address, TESTCHAINID);
-
-            let chainRegistered = storage.m_chains(TESTCHAINID);
-            assert(chainRegistered);
-
-            await ion.addChain(storage.address, TESTCHAINID).should.be.rejected;
-        })
-    })
+//    describe('Register Chain', () => {
+//        it('Successful Register Chain', async () => {
+//            // Successfully add id of another chain
+//            await ion.addChain(storage.address, TESTCHAINID);
+//
+//            let chainRegistered = await storage.m_chains(TESTCHAINID);
+//            assert(chainRegistered);
+//
+//            let chainId = await storage.m_networks.call(TESTCHAINID);
+//            assert.equal(TESTCHAINID, chainId);
+//        })
+//
+//        it('Fail Register Current Chain', async () => {
+//            // Fail adding deployment chain id
+//            await ion.addChain(storage.address, DEPLOYEDCHAINID).should.be.rejected;
+//        })
+//
+//        it('Fail Register Chain Twice', async () => {
+//            // Successfully add id of another chain
+//            await ion.addChain(storage.address, TESTCHAINID);
+//
+//            let chainRegistered = storage.m_chains(TESTCHAINID);
+//            assert(chainRegistered);
+//
+//            await ion.addChain(storage.address, TESTCHAINID).should.be.rejected;
+//        })
+//    })
 
     describe.only('Add Block', () => {
         it('Successful Add Block', async () => {
